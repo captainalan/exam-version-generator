@@ -1,0 +1,11 @@
+{
+  "name": "exam-version-generator-client",
+  "version": "0.0.1",
+  "description": "View exam generated exam versions in copy-paste ready HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alan Wong",
+  "license": "MIT"
+}
