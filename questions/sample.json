@@ -1,0 +1,46 @@
+{ "data":[
+    {
+        "question": "Is the earth round?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "yes",
+            "b": "no",
+            "c": "in a sense",
+            "d": "none of your beeswax"
+        },
+        "correct": "c"
+    },
+    {
+        "question": "Do round squares exist?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "On the cloud",
+            "b": "Nothing exists",
+            "c": "Everything exists",
+            "d": "Last year"
+        },
+        "correct": "a"
+    },
+    {
+        "question": "Are oranges multi-celled organisms?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "Last season",
+            "b": "Not in my backyard",
+            "c": "Orange is a color",
+            "d": "No, because snakes don't have arpits"
+        },
+        "correct": "c"
+    },
+    {
+        "question": "What is the square root of 1?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "yes",
+            "b": "no",
+            "c": "!",
+            "d": "{}"
+        },
+        "correct": "d"
+    }
+]}

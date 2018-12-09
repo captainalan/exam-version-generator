@@ -1,0 +1,24 @@
+{ "data":[
+    {
+        "question": "Why?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "w",
+            "b": "x",
+            "c": "y",
+            "d": "z"
+        },
+        "correct": "c"
+    },
+    {
+        "question": "How?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "好",
+            "b": "吃",
+            "c": "的",
+            "d": "饭"
+        },
+        "correct": "a"
+    }
+]}
