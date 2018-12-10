@@ -1,7 +1,7 @@
 let root = document.getElementById("exams-elem");
 
 /* JSON generated with create-exam.py */
-const VERSIONS_DIR = "../sample_output/my_versions.json";
+const VERSIONS_DIR = "./sample_output/my_versions.json";
 
 /* Sometimes, I refer to these via index. For example, I'll label my first
  * answer choice 'a', the second 'b', and so on. */
