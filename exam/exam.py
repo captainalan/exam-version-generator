@@ -9,7 +9,7 @@ class Exam:
         self.questions = questions # This class questions itself?!
         # What other info do I need to store here? Like versions and stuff?
 
-    def getVersion(self, seed=1, name="default"):
+    def getVersion(self, length, seed=1):
         """Generate an exam version from the questions based on seed
 
         For individual versions, store the question and answer choice orderings
@@ -25,7 +25,7 @@ class Exam:
             "answers": []
         }
 
-        for i in range(0, len(shuffled_questions)):
+        for i in range(0, length):
 
             # Save some typing
             this_question = shuffled_questions[i]

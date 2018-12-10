@@ -76,6 +76,17 @@ multiple correct answers.
 A useful page: [Deploying a subfolder to Github
 Pages](https://gist.github.com/cobyism/4730490)
 
+### Running tests
+
+I'm writing tests using the `unittest` module.
+
+It can be ta little bit tricky to test modules with test directory this-and-that.
+Read more on [Stack Overflow](https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure).
+
+```bash
+python -m unittest tests.test_basic
+```
+
 ### To implement later...
 
 - [ ] Write more useful usage instructions
