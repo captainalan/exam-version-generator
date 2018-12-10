@@ -5,9 +5,7 @@
   "description": "View exam generated exam versions in copy-paste ready HTML",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run gh-pages",
-    "gh-pages": "gh-pages -d dist"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alan Wong",
   "license": "MIT",
@@ -17,7 +15,6 @@
     "popper": "^1.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "gh-pages-cli": "^0.2.0"
+
   }
 }

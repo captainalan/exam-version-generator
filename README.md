@@ -73,6 +73,9 @@ multiple correct answers.
 
 ## Notes for the developer (me)
 
+A useful page: [Deploying a subfolder to Github
+Pages](https://gist.github.com/cobyism/4730490)
+
 ### To implement later...
 
 - [ ] Write more useful usage instructions
