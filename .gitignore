@@ -1,0 +1,5 @@
+# Python Things
+*/__pycache__
+
+# OS Things
+.DS_Store

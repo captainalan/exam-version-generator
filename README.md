@@ -1,11 +1,9 @@
 This application can be used to generate different exam versions from a set of
 questions stored in JSON format.
 
-A vanilla HTML/CSS/Javascript client is provided to view output. This way,
-normal users can copy/paste generated output for further formatting in
-applications like Microsoft Word, making sure page breaks are in appropriate
-places and what not. I thought about directly producing LaTeX, but ultimately
-opted for the current way of doing things to keep dependencies easy.
+A vanilla HTML/CSS/Javascript client is provided to view output. See an nice
+looking sample on this repository's [Github pages
+site](https://captainalan.github.io/exam-version-generator) 
 
 ## Usage
 
@@ -13,8 +11,11 @@ The file `create-exam.py` is the entry-point into using this project. It it
 assumed all your questions are stored in the `/questions` directory in JSON
 format (see "Question Format" below for more details)).
 
-```bash
-echo Add some instructions here, for real!
+Assuming you have [node](https://nodejs.org) installed, from this project's root
+directory:
+
+```bash 
+$ serve client 
 ```
 
 Contained in the `/client` directory is a simple view of the output...
@@ -74,8 +75,10 @@ multiple correct answers.
 
 ### To implement later...
 
-- [ ] Write HTML client
-- [ ] Support for images, text formatting, and other arbitrary HTML
+- [ ] Write more useful usage instructions
+- [x] Write HTML client
+- [x] Make things look nice on the sample with Bootstrap
+- [x] Support for images, text formatting, and other arbitrary HTML
 - [ ] Specify the length of the exam; must be longer than the number of questions
 - [ ] Include diagram of file layout in documentation
 
