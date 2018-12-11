@@ -115,10 +115,13 @@ python -m unittest tests.test_basic
 ### To implement later...
 
 - [ ] Write more useful usage instructions
-- [ ] Write HTML client
-    - [ ] Basic structure
+- [ ] Write client
+    - [x] Basic structure
+    - [x] Dist directory to Github pages
+    - [x] Set up simple Express site
     - [x] Make things look nice on the sample with Bootstrap
-    - [ ] Use ordered lists when applicable, so HTML is properly structured
+    - [x] Use ordered lists when applicable, so HTML is properly structured
+    - [ ] User friendly forms for entering question data
 - [x] Support for images, text formatting, and other arbitrary HTML
 - [x] Specify the length of the exam; must be longer than the number of questions
 - [ ] Include diagram of file layout in documentation

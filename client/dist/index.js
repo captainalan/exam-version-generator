@@ -56,10 +56,12 @@ const Question = elem => {
 
   let answerBlock = `
     <div class='answer-block'>
+       <ol type='a'>
        ${elem.choices.reduce((acc, choice, index) => {
          return acc 
-           + "<div> (" + LETTER_CHOICES[index] + ") " + choice + "</div>"
+           + "<li>" + choice + "</li>"
        }, "")} 
+       </ol>
     </div>`
 
   toReturn = `
