@@ -1,7 +1,16 @@
 import unittest
-import exam
+from exam import getQuestions, Exam
 
 class TestCliArgs(unittest.TestCase):
+
+    def test_get_questions_default(self):
+        """Does the function run with no errors?"""
+        self.assertTrue(getQuestions())
+
+    def test_get_questions_bad_file(self):
+        """Should output an error message..."""
+        self.assertEqual(getQuestions("foo1234"), [])
+        # ...assumption of course is we don't have some file called foo1234
 
     def test_exam_len_too_long(self):
         """Error message when there are too many questions requested."""

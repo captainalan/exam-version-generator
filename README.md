@@ -7,18 +7,43 @@ site](https://captainalan.github.io/exam-version-generator)
 
 ## Usage
 
-The file `create-exam.py` is the entry-point into using this project. It it
-assumed all your questions are stored in the `/questions` directory in JSON
-format (see "Question Format" below for more details)).
+The file `create-exam.py` is the entry-point into using this project. If you
+don't specify a file yourself, it it assumed all your questions are stored in
+the `/questions` directory in JSON format. See "Question Format" section for
+more details).
+
+First, make sure everything is set up.
+
+```bash
+python3 -m pipenv install
+pipenv shell
+```
+Now, you can be sure all dependencies are met. To generate multipe versions of
+your exam, do something like:
+
+```bash
+python create-exam.py  --exam_length 4 --versions 2
+```
+
+The above command will create two verions of your exam, of length 4 each. Output
+goes to standard output and can easily be piped in UNIX systems. To save the
+output to the `client/dist` directory to display, do:
+
+```bash
+python create-exam.py  --exam_length 4 --versions 2 > client/dist/my_versions.json
+```
 
 Assuming you have [node](https://nodejs.org) installed, from this project's root
 directory:
 
-```bash 
-$ serve client 
+```
+cd client
+npm install
+cd ..
+serve client/dist
 ```
 
-Contained in the `/client` directory is a simple view of the output...
+Now, navigate to https://localhost:5000/ to see the result!
 
 ## More Details
 
@@ -90,19 +115,27 @@ python -m unittest tests.test_basic
 ### To implement later...
 
 - [ ] Write more useful usage instructions
-- [x] Write HTML client
-- [x] Make things look nice on the sample with Bootstrap
+- [ ] Write HTML client
+    - [ ] Basic structure
+    - [x] Make things look nice on the sample with Bootstrap
+    - [ ] Use ordered lists when applicable, so HTML is properly structured
 - [x] Support for images, text formatting, and other arbitrary HTML
-- [ ] Specify the length of the exam; must be longer than the number of questions
+- [x] Specify the length of the exam; must be longer than the number of questions
 - [ ] Include diagram of file layout in documentation
+- [ ] Allow user to specify input file/directory
 
 ### Ideas to think about
-
-Store HTML in JSON file(s)? This way images, bolded/italicized text, etc can be
-used in questions, in addition to just normal plain text.
 
 The questions folder can have some images directory or something similar...
 
 Store the output somewhere to be retrieved and rendered by the client. Maybe
 just to the client folder itself?
+
+Real world exam stuff: Sometimes groups of questions have to go
+together. For example, there might be some dataset that a few
+questions, whose orders matter, are associated with. One possible way
+to solve this is to store these things together as a unit in
+JSON. Exam lengths then must be calculated with some sort of
+"weighting" wherein multi-part questions will have more weight than
+single, stand-alone questions.
 

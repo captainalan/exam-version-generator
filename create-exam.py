@@ -5,6 +5,8 @@ import json
 parser = argparse.ArgumentParser()
 parser.add_argument("--exam_length", type=int,
     help="Number of questions in the exam. Must be <= questions available.")
+parser.add_argument("--questions_file", default="none", type=str,
+    help="A file containing questions and answers")
 parser.add_argument("--seed", default=1, type=int,
     help="An integer to use as a seed for Python's random number module")
 parser.add_argument("--versions", default=1, type=int,
@@ -15,8 +17,14 @@ args = parser.parse_args()
 EXAM_LEN = args.exam_length
 START_SEED, NUM_VERSIONS = args.seed, args.versions
 
-# Get questions and check if exam_len is okay
-questions = getQuestions()
+# Get questions 
+if args.questions_file == "none":
+    questions = getQuestions(defaultDirectory=True)
+else:
+    # Add some check here to see if the file even exists
+    questions = getQuestions(args.questions_file)
+
+# Check if exam_len is okay
 if EXAM_LEN > len(questions):
     print("Not enough questions. Please specify a shorter exam length!")
     exit(1)
