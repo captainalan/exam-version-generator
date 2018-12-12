@@ -126,6 +126,7 @@ python -m unittest tests.test_basic
 - [x] Specify the length of the exam; must be longer than the number of questions
 - [ ] Include diagram of file layout in documentation
 - [ ] Allow user to specify input file/directory
+- [ ] Add deploy script for Github pages
 
 ### Ideas to think about
 
