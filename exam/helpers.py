@@ -2,6 +2,7 @@ import json
 import os
 import re
 import string
+import sys
 
 def getQuestions(defaultDirectory=True, filename=""):
     """Read in questions from json files in the questions folder by
@@ -9,16 +10,17 @@ def getQuestions(defaultDirectory=True, filename=""):
 
     questions = []
 
-    def getFileContents(filename):
+    def getFileContents(f):
         try:
-            with open(filename, "r") as file:
+            with open(f, "r") as file:
                 question_data = json.load(file)
                 questions.extend(question_data["data"])
-        except json.decoder.JSONDecodeError:
-            print("Bad data! Check the file of questions you specified?")
-            return []
         except FileNotFoundError:
-            return [] # should complain loudly, not just return a blank list
+            print("The file {} was not found.".format(f))
+            sys.exit(1)
+        except ValueError:
+            print("Decoding JSON has failed.")
+            sys.exit(1)
 
     if defaultDirectory==True:
         # Get all the valid JSON files in the questions directory

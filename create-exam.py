@@ -1,6 +1,7 @@
 import argparse
 from exam import getQuestions, Exam
 import json
+import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--exam_length", type=int,
@@ -27,8 +28,10 @@ else:
 
 # Check if exam_len is okay
 if EXAM_LEN > len(questions):
-    print("Not enough questions. Please specify a shorter exam length!")
-    exit(1)
+    print("Not enough questions. Please specify an exam length less than\
+            or equal to {}.".format(len(questions)))
+    sys.exit(1)
+
 else:
     versions = []
     myExam = Exam(questions)

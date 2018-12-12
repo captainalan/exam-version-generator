@@ -3,22 +3,28 @@ from exam import getQuestions, Exam
 
 class TestCliArgs(unittest.TestCase):
 
-    def test_get_questions_default(self):
-        """Does the function run with no errors?"""
-        self.assertTrue(getQuestions())
-
     def test_get_questions_file_not_found(self):
-        """Should output an error message..."""
-        self.assertEqual(getQuestions("foo1234"), [])
-        # ...assumption of course is we don't have some file called foo1234
+        with self.assertRaises(SystemExit) as cm:
+            getQuestions(defaultDirectory=False,
+                filename="foo1234")
+        self.assertEqual(cm.exception.code, 1)
 
     def test_get_questions_blank_file(self):
-        self.assertEqual(getQuestions(defaultDirectory=False,
-            filename="./tests/test_data/blank.json"), [])
+        with self.assertRaises(SystemExit) as cm:
+            getQuestions(defaultDirectory=False,
+                filename="./tests/test_data/blank.json")
+        self.assertEqual(cm.exception.code, 1)
 
-    def test_exam_len_too_long(self):
-        """Error message when there are too many questions requested."""
-        pass # Write a test later to do this...
+    def test_singleton_question_file(self):
+        target = [{
+            'question': 'foo?',
+            'type'    : 'multiple-choice',
+            'choices' : { 'a': 'bar', 'b': 'biz', 'c': 'baz', 'd': 'bees' },
+            'correct' : 'a'
+        }]
+
+        self.assertEqual(getQuestions(defaultDirectory="false",
+            filename="./tests/test_data/one_question.json"), target)
 
 if __name__ == '__main__':
     unittest.main()

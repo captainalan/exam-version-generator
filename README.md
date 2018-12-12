@@ -129,6 +129,7 @@ python -m unittest tests.test_basic
 - [ ] Include diagram of file layout in documentation
 - [ ] Allow user to specify input file/directory
 - [x] Add deploy script for Github pages
+- [x] On bad data make sure program exits
 
 ### Tests to write
 

@@ -1,0 +1,13 @@
+{ "data":[
+    {
+        "question": "foo?",
+        "type": "multiple-choice",
+        "choices": {
+            "a": "bar",
+            "b": "biz",
+            "c": "baz",
+            "d": "bees"
+        },
+        "correct": "a"
+    }
+]}
