@@ -36,23 +36,25 @@ python create-exam.py  --exam_length 4 --versions 2 > client/dist/my_versions.js
 Assuming you have [node](https://nodejs.org) installed, from this project's root
 directory:
 
-```
+```bash
 cd client
 npm install
 cd ..
-serve client/dist
 ```
 
-Now, navigate to https://localhost:5000/ to see the result!
+Start a HTTP server to view the output we generated with Python in a
+more useful to humans way:
+
+```bash
+node client/server.js
+```
+
+Now, navigate to https://localhost:5000/static to see the result!
 
 ## More Details
 
 (Since I'm containing all the documentation for this project in the README, I
 can put all the non-essential stuff for basic usage here...)
-
-### Multiple Versions
-
-(Notes on how to use multiple versions and stuff).
 
 ### Question Format
 
@@ -126,7 +128,13 @@ python -m unittest tests.test_basic
 - [x] Specify the length of the exam; must be longer than the number of questions
 - [ ] Include diagram of file layout in documentation
 - [ ] Allow user to specify input file/directory
-- [ ] Add deploy script for Github pages
+- [x] Add deploy script for Github pages
+
+### Tests to write
+
+- [ ] Bad JSON data
+- [ ] Blank data file
+- [ ] File not found
 
 ### Ideas to think about
 
