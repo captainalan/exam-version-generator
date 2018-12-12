@@ -9,9 +9,16 @@ def getQuestions(defaultDirectory=True, filename=""):
 
     questions = []
 
-    def getFileContents(file):
-        question_data = json.load(file)
-        questions.extend(question_data["data"])
+    def getFileContents(filename):
+        try:
+            with open(filename, "r") as file:
+                question_data = json.load(file)
+                questions.extend(question_data["data"])
+        except json.decoder.JSONDecodeError:
+            print("Bad data! Check the file of questions you specified?")
+            return []
+        except FileNotFoundError:
+            return [] # should complain loudly, not just return a blank list
 
     if defaultDirectory==True:
         # Get all the valid JSON files in the questions directory
@@ -19,22 +26,10 @@ def getQuestions(defaultDirectory=True, filename=""):
         question_filenames = filter(json_ext.search, os.listdir("questions"))
 
         for filename in question_filenames:
-            try:
-                with open("./questions/" + filename, "r") as file:
-                    getFileContents(file)
-            except:
-                pass
-                # Add some checks for the quality of the questions
-                # Handle not JSON or not well formed files
+            myFileName = "./questions/" + filename
+            getFileContents(myFileName)
     else:
         # Handle user specified file
-        try:
-            with open(filename, "r") as file:
-                getFileContents(file) 
-        except json.decoder.JSONDecodeError:
-            print("Bad data! Check the file of questions you specified?")
-            return []
-        except FileNotFoundError:
-            return [] # should complain loudly, not just return a blank list
+        getFileContents(filename) 
 
     return questions
