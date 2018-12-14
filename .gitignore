@@ -3,3 +3,6 @@
 
 # OS Things
 .DS_Store
+
+# Editor Things
+.vscode

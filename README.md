@@ -12,14 +12,19 @@ don't specify a file yourself, it it assumed all your questions are stored in
 the `/questions` directory in JSON format. See "Question Format" section for
 more details).
 
-First, make sure everything is set up.
+### Setup
+
+Install dependencies using `pipenv` 
+from the project's root directory:
 
 ```bash
 python3 -m pipenv install
 pipenv shell
 ```
-Now, you can be sure all dependencies are met. To generate multipe versions of
-your exam, do something like:
+
+### Create Multiple Versions of an Exam
+
+To generate multiple versions of your exam, do something like:
 
 ```bash
 python create-exam.py  --exam_length 4 --versions 2
@@ -32,6 +37,8 @@ output to the `client/dist` directory to display, do:
 ```bash
 python create-exam.py  --exam_length 4 --versions 2 > client/dist/my_versions.json
 ```
+
+### View Output
 
 Assuming you have [node](https://nodejs.org) installed, from this project's root
 directory:
@@ -114,41 +121,39 @@ Read more on [Stack Overflow](https://stackoverflow.com/questions/1896918/runnin
 python -m unittest tests.test_basic
 ```
 
+### Tests to write
+
+- [x] Bad JSON data
+- [x] Blank data file
+- [x] File not found
+- [ ] Exam.addQuestion()
+- [ ] Exam.removeQuestion() 
+
 ### To implement later...
 
+Write tests while you make these!
+
 - [ ] Write more useful usage instructions
-- [ ] Write client
+- [ ] GUI (consider using [kivy](https://kivy.org/))
+- [x] Output viewer client
     - [x] Basic structure
     - [x] Dist directory to Github pages
     - [x] Set up simple Express site
     - [x] Make things look nice on the sample with Bootstrap
     - [x] Use ordered lists when applicable, so HTML is properly structured
-    - [ ] User friendly forms for entering question data
 - [x] Support for images, text formatting, and other arbitrary HTML
 - [x] Specify the length of the exam; must be longer than the number of questions
 - [ ] Include diagram of file layout in documentation
 - [ ] Allow user to specify input file/directory
 - [x] Add deploy script for Github pages
 - [x] On bad data make sure program exits
-
-### Tests to write
-
-- [ ] Bad JSON data
-- [ ] Blank data file
-- [ ] File not found
-
-### Ideas to think about
-
-The questions folder can have some images directory or something similar...
-
-Store the output somewhere to be retrieved and rendered by the client. Maybe
-just to the client folder itself?
-
-Real world exam stuff: Sometimes groups of questions have to go
-together. For example, there might be some dataset that a few
-questions, whose orders matter, are associated with. One possible way
-to solve this is to store these things together as a unit in
-JSON. Exam lengths then must be calculated with some sort of
-"weighting" wherein multi-part questions will have more weight than
-single, stand-alone questions.
+- [ ] Support for embedded images
+    - The questions folder can have some images directory or something similar...
+- [ ] Support more question types
+    - Sometimes groups of questions have to go together. For example, there might
+      be some dataset that a few questions, whose orders matter, are associated
+      with. One possible way to solve this is to store these things together as a
+      unit in JSON. Exam lengths then must be calculated with some sort of
+      "weighting" wherein multi-part questions will have more weight than single,
+      stand-alone questions.
 

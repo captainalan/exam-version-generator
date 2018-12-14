@@ -1,13 +1,21 @@
 import random
 
 class Exam:
-    """Representation of an exam, questions, answer choices, and correck
+    """Representation of an exam, questions, answer choices, and correct
     answers
     """
 
-    def __init__(self, questions):
+    def __init__(self, questions=[]):
         self.questions = questions # This class questions itself?!
         # What other info do I need to store here? Like versions and stuff?
+
+    def addQuestion(self, question):
+        """Add a question to this Exam."""
+        pass
+
+    def removeQuestion(self, questionKey):
+        """Attempt to remove a question from this exam as specified by a key (str)."""
+        pass
 
     def getVersion(self, length, seed=1):
         """Generate an exam version from the questions based on seed
