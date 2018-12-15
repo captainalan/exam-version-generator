@@ -2,26 +2,41 @@ import unittest
 from exam import getQuestions, Exam
 
 class TestCliArgs(unittest.TestCase):
+    # Some variables and things to use in tests
 
-    def test_get_questions_file_not_found(self):
+    myGoodQuestion = {
+        'question': 'Did it work?',
+        'type'    : 'multiple-choice',
+        'choices' : { 'a': 'yes', 'b': 'foo', 'c': 'bar', 'd': 'baz' },
+        'correct' : 'a'
+    }
+
+    myBadQuestion = {
+        'not_a_question': 'I do not ask questions.',
+        'type'    : 'multiple-choice',
+        'choices' : { 'a': 'foo', 'b': 'bar', 'c': 'baz' },
+        'correct' : 'There is no right answer.'
+    }
+
+    def test_getQuestions_file_not_found(self):
         with self.assertRaises(SystemExit) as cm:
             getQuestions(defaultDirectory=False,
                 filename="foo1234")
         self.assertEqual(cm.exception.code, 1)
 
-    def test_get_questions_blank_file(self):
+    def test_getQuestions_blank_file(self):
         with self.assertRaises(SystemExit) as cm:
             getQuestions(defaultDirectory=False,
                 filename="./tests/test_data/blank.json")
         self.assertEqual(cm.exception.code, 1)
 
-    def test_get_questions_bad_json(self):
+    def test_getQuestions_bad_json(self):
         with self.assertRaises(SystemExit) as cm:
             getQuestions(defaultDirectory=False,
                 filename="./tests/test_data/bad_data.json")
         self.assertEqual(cm.exception.code, 1)
 
-    def test_singleton_question_file(self):
+    def test_getQuestions_singleton_question_file(self):
         target = [{
             'question': 'foo?',
             'type'    : 'multiple-choice',
@@ -32,17 +47,27 @@ class TestCliArgs(unittest.TestCase):
         self.assertEqual(getQuestions(defaultDirectory="false",
             filename="./tests/test_data/one_question.json"), target)
 
-    def test_add_question(self):
-        # Start with blank exam
+    def test_Exam_addQuestion_good_question(self):
         myExam = Exam() 
-        pass # Write this!
+        myExam.addQuestion(self.myGoodQuestion)
+        self.assertEqual(myExam.getQuestions(), [self.myGoodQuestion])
 
-    def test_remove_question_valid(self):
-        pass # Write this!
+    def test_Exam_addQuestion_bad_question(self):
+        myExam = Exam() 
+        try:
+            myExam.addQuestion(self.myBadQuestion)
+        except ValueError:
+            pass
+            # When input is bad, nothing should be added.
+        self.assertEqual(myExam.getQuestions(), [])
 
-    def test_remove_question_invalid(self):
-        """Try to remove a question that doesn't exist."""
-        pass 
+    def test_Exam_removeQuestion_valid(self):
+        myExam = Exam() # Seems to reuse myExam from earlier...?
+        myExam.removeQuestion(search=0, questionIndex=True) 
+        self.assertEqual(myExam.getQuestions(), [])
+
+    def test_Exam_removeQuestion_invalid(self):
+        pass # Gotta figure out how to write this test
 
 if __name__ == '__main__':
     unittest.main()

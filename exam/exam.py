@@ -11,11 +11,35 @@ class Exam:
 
     def addQuestion(self, question):
         """Add a question to this Exam."""
-        pass
+        if type(question) != dict:
+            raise TypeError("Question should be a dict.")
 
-    def removeQuestion(self, questionKey):
-        """Attempt to remove a question from this exam as specified by a key (str)."""
-        pass
+        keys = question.keys()
+        # Check to make sure entries for all necessary keys are present.
+        necessary = ["question", "correct"]
+        for n in necessary:
+            if n not in keys:
+                raise ValueError("No question in keys.")
+        self.questions.append(question)
+
+    def removeQuestion(self, search, questionIndex=False):
+        """Attempt to remove a question from this exam as specified by an 
+        index or (sub)string. Remove question as specified index 
+        OR the first question such that `search` matches the value of key question" 
+        """
+        if questionIndex == True and\
+            type(search) == int and search < len(self.questions):
+                print("Initiating removal of search={}".format(search))
+                del self.questions[search]
+                print("After trying to delete i={}, var questions is: {}".format(search, self.questions))
+        elif questionIndex == False:
+            # Search questions for string `search`
+            pass
+        else:
+            raise ValueError("Bad input.")
+
+    def getQuestions(self):
+        return self.questions
 
     def getVersion(self, length, seed=1):
         """Generate an exam version from the questions based on seed

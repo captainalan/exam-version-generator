@@ -6,7 +6,8 @@ import sys
 
 def getQuestions(defaultDirectory=True, filename=""):
     """Read in questions from json files in the questions folder by
-    default, or from a specified file"""
+    default, or from a specified file. Return an array of `dict`s.
+    """
 
     questions = []
 

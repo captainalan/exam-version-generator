@@ -126,7 +126,7 @@ python -m unittest tests.test_basic
 - [x] Bad JSON data
 - [x] Blank data file
 - [x] File not found
-- [ ] Exam.addQuestion()
+- [x] Exam.addQuestion()
 - [ ] Exam.removeQuestion() 
 
 ### To implement later...
