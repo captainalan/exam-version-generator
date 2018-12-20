@@ -1,3 +1,5 @@
+# Exam Version Generator
+
 This application can be used to generate different exam versions from a set of
 questions stored in JSON format.
 
@@ -24,7 +26,8 @@ pipenv shell
 
 ### Create Multiple Versions of an Exam
 
-To generate multiple versions of your exam, do something like:
+To generate multiple versions of your exam, use the command line program.
+For example, you can do something like...
 
 ```bash
 python create-exam.py  --exam_length 4 --versions 2
@@ -39,6 +42,9 @@ python create-exam.py  --exam_length 4 --versions 2 > client/dist/my_versions.js
 ```
 
 ### View Output
+
+Included in this repository is a client for viewing the JSON outputted
+by the command line tool.
 
 Assuming you have [node](https://nodejs.org) installed, from this project's root
 directory:
@@ -56,12 +62,9 @@ more useful to humans way:
 node client/server.js
 ```
 
-Now, navigate to https://localhost:5000/static to see the result!
+Now, navigate to https://localhost:5000/static to see the result! You can of course, just use the outputed JSON to process with your own program(s).
 
 ## More Details
-
-(Since I'm containing all the documentation for this project in the README, I
-can put all the non-essential stuff for basic usage here...)
 
 ### Question Format
 
@@ -104,56 +107,12 @@ otherwise students will have no chance of getting the question correct!
 Feature to maybe add: allow `correct` to be an array whereby students may select
 multiple correct answers.
 
-
-## Notes for the developer (me)
-
-A useful page: [Deploying a subfolder to Github
-Pages](https://gist.github.com/cobyism/4730490)
-
 ### Running tests
 
 I'm writing tests using the `unittest` module.
-
-It can be ta little bit tricky to test modules with test directory this-and-that.
-Read more on [Stack Overflow](https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure).
 
 ```bash
 python -m unittest tests.test_basic
 ```
 
-### Tests to write
-
-- [x] Bad JSON data
-- [x] Blank data file
-- [x] File not found
-- [x] Exam.addQuestion()
-- [ ] Exam.removeQuestion() 
-
-### To implement later...
-
-Write tests while you make these!
-
-- [ ] Write more useful usage instructions
-- [ ] GUI (consider using [kivy](https://kivy.org/))
-- [x] Output viewer client
-    - [x] Basic structure
-    - [x] Dist directory to Github pages
-    - [x] Set up simple Express site
-    - [x] Make things look nice on the sample with Bootstrap
-    - [x] Use ordered lists when applicable, so HTML is properly structured
-- [x] Support for images, text formatting, and other arbitrary HTML
-- [x] Specify the length of the exam; must be longer than the number of questions
-- [ ] Include diagram of file layout in documentation
-- [ ] Allow user to specify input file/directory
-- [x] Add deploy script for Github pages
-- [x] On bad data make sure program exits
-- [ ] Support for embedded images
-    - The questions folder can have some images directory or something similar...
-- [ ] Support more question types
-    - Sometimes groups of questions have to go together. For example, there might
-      be some dataset that a few questions, whose orders matter, are associated
-      with. One possible way to solve this is to store these things together as a
-      unit in JSON. Exam lengths then must be calculated with some sort of
-      "weighting" wherein multi-part questions will have more weight than single,
-      stand-alone questions.
-
+This question on [Stack Overflow](https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure) helped me figure this out.
