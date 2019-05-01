@@ -11,9 +11,8 @@
   "author": "Alan Wong",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.1.3",
     "express": "^4.16.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "popper": "^1.0.1",
     "pug": "^2.0.3"
   },
