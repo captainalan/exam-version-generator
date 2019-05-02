@@ -24,7 +24,14 @@ python3 -m pipenv install
 pipenv shell
 ```
 
+Run the flask server:
+
+    $ export FLASK_ENV=development
+    $ flask run
+
 ### Create Multiple Versions of an Exam
+
+(This will soon be done by a web interface)
 
 To generate multiple versions of your exam, use the command line program.
 For example, you can do something like...
@@ -40,29 +47,6 @@ output to the `client/dist` directory to display, do:
 ```bash
 python create-exam.py  --exam_length 4 --versions 2 > client/dist/my_versions.json
 ```
-
-### View Output
-
-Included in this repository is a client for viewing the JSON outputted
-by the command line tool.
-
-Assuming you have [node](https://nodejs.org) installed, from this project's root
-directory:
-
-```bash
-cd client
-npm install
-cd ..
-```
-
-Start a HTTP server to view the output we generated with Python in a
-more useful to humans way:
-
-```bash
-node client/server.js
-```
-
-Now, navigate to https://localhost:5000/static to see the result! You can of course, just use the outputed JSON to process with your own program(s).
 
 ## More Details
 
