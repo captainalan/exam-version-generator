@@ -13,16 +13,19 @@ def example(data=None):
     return render_template('example.html', data=data)
 
 # Pass in question data to get shuffled questions
-@app.route('/create-exam/<questions_file>')
+@app.route('/create-exam/<questions_file>', methods=['GET'])
 def createExam(questions_file):
-    # Take what is now command line arguments as query parameters 
-    foo = "wut"
     try:
-        foo = getQuestions(False, "./questions/" + questions_file)
-        myExam = Exam(foo)
+        # Exam questions
+        qs = getQuestions(False, "./questions/" + questions_file + ".json")
+
+        number_questions = int(request.args.get('n', len(qs)))
+        seed = request.args.get('s', 0)
+
+        myExam = Exam(qs)
     except:
-        print("Nope: {}".format(foo))
-    return jsonify(myExam.getVersion(len(foo)))
+        return(jsonify({ 'message': 'Failed to load questions' }))
+    return jsonify(myExam.getVersion(number_questions, seed))
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

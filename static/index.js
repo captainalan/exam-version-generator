@@ -1,7 +1,7 @@
 let root = document.getElementById("exams-elem");
 
 /* JSON generated with create-exam.py */
-const VERSIONS_DIR = "my_versions.json";
+const QUESTIONS = "http://localhost:5000/sample";
 
 /* Sometimes, I refer to these via index. For example, I'll label my first
  * answer choice 'a', the second 'b', and so on. */
@@ -9,7 +9,7 @@ const LETTER_CHOICES = "abcde"
 
 // Fetch JSON data
 async function getVersions() {
-  fetch(VERSIONS_DIR)
+  fetch(QUESTIONS)
   .then(res => {
     if (!res.ok) {
       throw Error(res.statusText);
