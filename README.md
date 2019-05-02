@@ -1,18 +1,9 @@
 # Exam Version Generator
 
 This application can be used to generate different exam versions from a set of
-questions stored in JSON format.
+questions stored in JSON format. This app is built using Flask (Python 3) with some help from Bootstrap (front-end). The rest is plain Python on the back end and HTML/CSS/JavaScript on the front end.
 
-A vanilla HTML/CSS/Javascript client is provided to view output. See an nice
-looking sample on this repository's [Github pages
-site](https://captainalan.github.io/exam-version-generator) 
-
-## Usage
-
-The file `create-exam.py` is the entry-point into using this project. If you
-don't specify a file yourself, it it assumed all your questions are stored in
-the `/questions` directory in JSON format. See "Question Format" section for
-more details).
+## Web Application
 
 ### Setup
 
@@ -29,9 +20,14 @@ Run the flask server:
     $ export FLASK_ENV=development
     $ flask run
 
-### Create Multiple Versions of an Exam
+By default, the app should be running on [http://localhost:5000](http://localhost:5000).
 
-(This will soon be done by a web interface)
+## Command Line Interface
+
+The file `create-exam.py` is the entry-point into using this project. If you
+don't specify a file yourself, it it assumed all your questions are stored in
+the `/questions` directory in JSON format. See "Question Format" section for
+more details).
 
 To generate multiple versions of your exam, use the command line program.
 For example, you can do something like...
