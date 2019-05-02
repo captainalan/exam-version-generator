@@ -1,15 +1,28 @@
 import os
-from flask import Flask, redirect, request, render_template
+from flask import Flask, jsonify, redirect, request, render_template
+from exam import getQuestions, Exam
+
 app = Flask(__name__, static_url_path='') # Serve static files
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-# Pass in data as argument to render in example
 @app.route('/example')
 def example(data=None):
     return render_template('example.html', data=data)
+
+# Pass in question data to get shuffled questions
+@app.route('/create-exam/<questions_file>')
+def createExam(questions_file):
+    # Take what is now command line arguments as query parameters 
+    foo = "wut"
+    try:
+        foo = getQuestions(False, "./questions/" + questions_file)
+        myExam = Exam(foo)
+    except:
+        print("Nope: {}".format(foo))
+    return jsonify(myExam.getVersion(len(foo)))
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
