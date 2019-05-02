@@ -25,9 +25,9 @@ pipenv shell
 ```
 
 Run the flask server:
-```
 
-```
+    $ export FLASK_ENV=development
+    $ flask run
 
 ### Create Multiple Versions of an Exam
 

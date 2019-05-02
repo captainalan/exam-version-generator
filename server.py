@@ -3,8 +3,8 @@ from flask import Flask, redirect, request, render_template
 app = Flask(__name__, static_url_path='') # Serve static files
 
 @app.route('/')
-def hello_world():
-    return redirect("/index.html", code=302)
+def index():
+    return render_template("index.html")
 
 # Pass in data as argument to render in example
 @app.route('/example')
