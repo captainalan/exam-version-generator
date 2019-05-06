@@ -1,6 +1,9 @@
 # Python Things
 */__pycache__
 
+# Virtual Environment
+env/
+
 # OS Things
 .DS_Store
 

@@ -1,15 +1,19 @@
 let root = document.getElementById("exams-elem");
 
 /* JSON generated with create-exam.py */
-const QUESTIONS = "http://localhost:5000/sample";
+const EXAM_URL = "http://localhost:5000/create-exam/sample";
 
 /* Sometimes, I refer to these via index. For example, I'll label my first
  * answer choice 'a', the second 'b', and so on. */
 const LETTER_CHOICES = "abcde"
 
 // Fetch JSON data
-async function getVersions() {
-  fetch(QUESTIONS)
+async function putVersion(html_elem) {
+
+  // Pseudo-randomness to make randomness?!
+  rand_seed = Math.floor(Math.random() * 9000)
+
+  fetch(EXAM_URL + "?s=" + rand_seed)
   .then(res => {
     if (!res.ok) {
       throw Error(res.statusText);
@@ -17,26 +21,24 @@ async function getVersions() {
     return res.json();
   })
   .then(myJSON => {
-    root.innerHTML = Exams(myJSON);
+    // Render exams
+    html_elem.innerHTML = Version(myJSON);
   })
   .catch(error => {
-    console.log(error);
+    console.log(`Error: ${error}`);
     return {};
   });
 }
 
-// Render exams
-const Exams = elem => elem.reduce((acc, version) => acc + Version(version), "");
-
 // Render version
 const Version = elem => {
-  let versionName = Object.keys(elem)[0];
+  let versionName = "Version Seed " + elem.seed;
 
-  let questions = elem[versionName].questions.reduce((acc, question) => {
+  let questions = elem.questions.reduce((acc, question) => {
     return acc + Question(question);
   }, "");
 
-  let answers = elem[versionName].answers.reduce((acc, answer, index) => {
+  let answers = elem.answers.reduce((acc, answer, index) => {
     return acc + `q${index + 1}. ${LETTER_CHOICES[answer]}<br>`
   }, "");
 
@@ -72,4 +74,13 @@ const Question = elem => {
 }
 
 // Call Functions, Do Stuff!
-getVersions()
+let child1 = document.createElement("div");
+let child2 = document.createElement("div");
+exam_versions = [child1, child2];
+exam_versions.map(elem => {
+  elem.className = "col-md-6"
+  root.append(elem);
+  putVersion(elem);
+});
+// putVersion(child1);
+// putVersion(child2);

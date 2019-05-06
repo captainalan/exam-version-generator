@@ -23,9 +23,12 @@ def createExam(questions_file):
         seed = request.args.get('s', 0)
 
         myExam = Exam(qs)
+
+        version = myExam.getVersion(number_questions, seed)
+        version['seed'] = seed
     except:
         return(jsonify({ 'message': 'Failed to load questions' }))
-    return jsonify(myExam.getVersion(number_questions, seed))
+    return jsonify(version)
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

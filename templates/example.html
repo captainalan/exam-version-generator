@@ -34,6 +34,8 @@
                 a non-programmer friend, doing things like adding page breaks
                 when appropriate to make a print-ready exam version.</p>
 
+                <p>To view the raw JSON generated, navigate to <a href="http://localhost:5000/create-exam/sample?s=1337">localhost:5000/create-exam/sample?s=1337</a> where 1337 can be replaced by whatever seed value you want to use.</p>
+
                 <p>Had enough? Return to the 
                   <a href="/">homepage</a> or 
                     <a href="https://github.com/captainalan/exam-version-generator">
@@ -46,10 +48,8 @@
         </div>
 
         <!-- Here is the HTML element that index.js will manipulate -->
-        <div class="row">
-            <div id="exams-elem" class="col-md-12"></div>
-            <script src="./index.js"></script>
-        </div>
+        <div id="exams-elem" class="row"></div>
+        <script src="./index.js"></script>
 
         <div class="row">
             <div class="col-md-12">

@@ -5,10 +5,17 @@ questions stored in JSON format. This app is built using Flask (Python 3) with s
 
 ## Web Application
 
+Through the web app, you can generate multiple exam versions from questions stored in JSON format:
+
+![Screenshot](/screenshot.PNG)
+
 ### Setup
 
-Install dependencies using `pipenv` 
-from the project's root directory:
+Install dependencies using `pipenv` from the project's root directory:
+
+#### Unix systems
+
+On Unix-based systems including Linux and MacOS, the process for starting up the (development) server is:
 
 ```bash
 python3 -m pipenv install
@@ -20,7 +27,29 @@ Run the flask server:
     $ export FLASK_ENV=development
     $ flask run
 
-By default, the app should be running on [http://localhost:5000](http://localhost:5000).
+By default, the app should be running on [http://localhost:5000](http://localhost:5000). Navigate there in a your favorite browser and use the web app like any other site you may visit.
+
+#### Windows
+
+These are instructions for starting the web app using `cmd` (if you are using [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10), just follow the instructions above).
+
+First, make sure you have [pipenv](https://docs.pipenv.org/en/latest/) installed.
+
+Run:
+
+```cmd
+pipenv install
+```
+
+this should create a virtual environment and install all dependencies as listed in the `Pipfile`. Then, to activate the virtual enviornment, run:
+
+```cmd
+pipenv shell
+```
+
+The command line prompt should change to reflect the fact that you activated a virtual environment to something like `(this-project-asdf) C:\Users\you\Documents... >`.
+
+Start the server by running `python server.js`. Open a web browser to [http://localhost:5000](http://localhost:5000).
 
 ## Command Line Interface
 
