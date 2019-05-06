@@ -1,31 +1,48 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% block head %}
+    <title>Exam Version Generator Example</title>
+{% endblock %}
 
-    <title>Exam Version Generator</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-         <h1>Exam Version Generator</h1>
-         <p>Check out an <a href="/example">example</a>.</p>
+{% block content %}
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Exam Version Generator</h1>
+    <p class="lead">This web app creates multiple exam versions from user provided questions and answers. Check out an <a href="/example">example</a>.</p>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+          <h2>Exam Versions for the 21st Century</h2>
+          <p>It would be nice if students never cheated on exams. It would also be nice if ice cream was always good for you.</p>
+          <p>Fortunately, there are ways to prevent cheating and also situations where ice cream is indeed good for you (what would want to eat after being trapped on a desert island for a week withou food?!)</p>
+
+          <h2>Features</h2>
+          <ul>
+            <li>Free, as in free beer <i>and</i> freedom!</li>
+            <li>Plain text formats make it easier to write exams in your favorite text editor</li>
+            <li>No red tape (though, this app may use "duct tape")</li>
+          </ul>
+      </div>
+      <div class="col-md-3">
+        <div class="figure">
+          <img 
+            class="rounded float-left img-fluid"
+            src="/images/exam.png"
+            alt="Exam">
+        </div>
+        <div>
+          <p>Image from <a href="https://unsplash.com/@nate_dumlao">Nathan Dumlao</a> on <a href="https://unsplash.com/photos/xPHmmVKS8lM">unsplash</a></p>
         </div>
       </div>
+      <div class="col-md-4">
+          <h2>Sample Questions</h2>
+          <p>Questions are stored server-side as human-readable JSON files.</p>
+          <script src="https://gist.github.com/captainalan/f35781c868b2047810796e45e03e5cfc.js"></script>
+      </div>
     </div>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+</div>
+{% endblock %}

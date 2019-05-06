@@ -7,7 +7,13 @@ questions stored in JSON format. This app is built using Flask (Python 3) with s
 
 Through the web app, you can generate multiple exam versions from questions stored in JSON format:
 
-![Screenshot](/screenshot.PNG)
+### Multiple exam versions with answer keys
+
+![Versions Screenshot](/screenshot_versions.PNG)
+
+### Web interface 
+
+![Home Screenshot](/screenshot_home.PNG)
 
 ### Setup
 
